@@ -26,11 +26,19 @@ public class Equipo {
     @Column
     private LocalDateTime fundacion;
 
-    @OneToMany(mappedBy = "equipo", cascade = CascadeType.ALL)
-    @JsonManagedReference
+    @OneToMany(mappedBy = "equipo", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JsonManagedReference("equipo-jugadores")
     private List<Jugador> jugadores;
 
-    @OneToMany(mappedBy = "equipo", cascade = CascadeType.ALL)
-    @JsonManagedReference
+    @OneToMany(mappedBy = "equipo", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JsonManagedReference("equipo-entrenadores")
     private List<Entrenador> entrenadores;
+
+    @OneToMany(mappedBy = "equipoLocal", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JsonManagedReference("equipo-partidos-local")
+    private List<Partido> partidosLocal;
+
+    @OneToMany(mappedBy = "equipoVisitante", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JsonManagedReference("equipo-partidos-visita")
+    private List<Partido> partidosVisita;
 }

@@ -1,0 +1,753 @@
+{
+	"info": {
+		"_postman_id": "1390a8a3-9cd8-4043-924b-3e6450f1fb35",
+		"name": "Parcial",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44334090",
+		"_collection_link": "https://yohnramirez.postman.co/workspace/Yohn-Ramirez's-Workspace~ec6c6484-30df-43a7-81ee-68dabc160db4/collection/44334090-1390a8a3-9cd8-4043-924b-3e6450f1fb35?action=share&source=collection_link&creator=44334090"
+	},
+	"item": [
+		{
+			"name": "Jugador",
+			"item": [
+				{
+					"name": "ObtenerJugadores",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/jugador/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"jugador",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CrearJugador",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Lionel Messi\",\r\n    \"posicion\": \"Delantero\",\r\n    \"dorsal\": 10,\r\n    \"fechaNac\": \"1987-06-24T00:00:00\",\r\n    \"nacionalidad\": \"Argentina\",\r\n    \"equipo\": {\r\n        \"id\": 1\r\n    },\r\n    \"estadisticas\": [\r\n        {\r\n            \"goles\": 672,\r\n            \"asistencias\": 305\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/jugador/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"jugador",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EliminarJugador",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/jugador/1040",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"jugador",
+								"1040"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ObtenerUno",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/jugador/1039",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"jugador",
+								"1039"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ActualizarJugador",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Ricardo Ortiz\",\r\n    \"posicion\": \"Delantero\",\r\n    \"dorsal\": 31,\r\n    \"fechaNac\": \"2003-08-20T00:00:00\",\r\n    \"nacionalidad\": \"Brasil\",\r\n    \"estadisticas\": []\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/jugador/1039",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"jugador",
+								"1039"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "JugadoresPorGoles",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/jugador/by-goles?cantidadGoles=10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"jugador",
+								"by-goles"
+							],
+							"query": [
+								{
+									"key": "cantidadGoles",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "JugadoresPorEquipo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/jugador/by-equipo?idEquipo=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"jugador",
+								"by-equipo"
+							],
+							"query": [
+								{
+									"key": "idEquipo",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Partido",
+			"item": [
+				{
+					"name": "ObtenerTotalGoles",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/partido/goles?idEquipo=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"partido",
+								"goles"
+							],
+							"query": [
+								{
+									"key": "idEquipo",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ObtenerResultados",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/partido/resultados",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"partido",
+								"resultados"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ObtenerPartidos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/partido/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"partido",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CrearPartido",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fecha\": \"2032-07-04T00:00:00\",\r\n    \"estadio\": \"Wembley Stadium\",\r\n    \"golesLocal\": 5,\r\n    \"golesVisitante\": 4\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/partido/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"partido",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ActualizarPartido",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fecha\": \"2032-07-04T00:00:00\",\r\n    \"estadio\": \"Wembley Stadium\",\r\n    \"golesLocal\": 5,\r\n    \"golesVisitante\": 4\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/partido/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"partido",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ObtenerUno",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/partido/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"partido",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EliminarPartido",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/partido/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"partido",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Entrenador",
+			"item": [
+				{
+					"name": "ObtenerEntrenadores",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/entrenador/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"entrenador",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ObtenerUno",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/entrenador/50",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"entrenador",
+								"50"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CrearEntrenador",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Carlos Martínez\",\r\n    \"nacionalidad\": \"España\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/entrenador/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"entrenador",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ActualizarEntrenador",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"AAAAAA Martínez\",\r\n    \"nacionalidad\": \"España\"\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/entrenador/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"entrenador",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EliminarEntrenador",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/entrenador/20",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"entrenador",
+								"20"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Equipo",
+			"item": [
+				{
+					"name": "ObtenerUno",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/equipo/20",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"equipo",
+								"20"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ObtenerEquipos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/equipo/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"equipo",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CrearEquipo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Santa Fe\",\r\n    \"ciudad\": \"Bogotá\",\r\n    \"fundacion\": \"2025-01-01T00:00:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/equipo/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"equipo",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ActualizarEquipo",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Atletico Nacional\",\r\n    \"ciudad\": \"Medellin\",\r\n    \"fundacion\": \"2025-01-01T00:00:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/equipo/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"equipo",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EliminarEquipo",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/equipo/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"equipo",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Estadisticas",
+			"item": [
+				{
+					"name": "CrearEstadistica",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"minutosJugados\": 45,\r\n    \"goles\": 2,\r\n    \"asistencias\": 1,\r\n    \"tarjetasAmarillas\": 0,\r\n    \"tarjetasRojas\": 0,\r\n    \"jugador\": {\r\n        \"id\": 1\r\n    },\r\n    \"partido\": {\r\n        \"id\": 2\r\n    }\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/estadisticas/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"estadisticas",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ObtenerEstadisticas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/estadisticas/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"estadisticas",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ObtenerUna",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/estadisticas/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"estadisticas",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ActualizarEstadistica",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"minutosJugados\": 30,\r\n    \"goles\": 2,\r\n    \"asistencias\": 1,\r\n    \"tarjetasAmarillas\": 0,\r\n    \"tarjetasRojas\": 0,\r\n    \"jugador\": {\r\n        \"id\": 1\r\n    },\r\n    \"partido\": {\r\n        \"id\": 2\r\n    }\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/estadisticas/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"estadisticas",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EliminarEstadistica",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/estadisticas/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"estadisticas",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

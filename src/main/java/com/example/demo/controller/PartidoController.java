@@ -70,4 +70,24 @@ public class PartidoController {
 
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
+
+    @GetMapping("/resultados")
+    public ResponseEntity<List<Object[]>> obtenerResultados() {
+
+        var result = this.partidoLogic.getResultados();
+
+        if (result == null) return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+
+        return new ResponseEntity<>(result, HttpStatus.OK);
+    }
+
+    @GetMapping("/goles")
+    public ResponseEntity<List<Integer>> obtenerTotalGolesEquipo(@RequestParam Long idEquipo) {
+
+        var result = this.partidoLogic.getTotalGoles(idEquipo);
+
+        if (result == null) return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+
+        return new ResponseEntity<>(result, HttpStatus.OK);
+    }
 }

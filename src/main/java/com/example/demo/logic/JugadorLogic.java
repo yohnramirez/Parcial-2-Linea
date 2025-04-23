@@ -86,7 +86,7 @@ public class JugadorLogic {
 
     public List<Jugador> findJugadoresByEquipo(Long idEquipo) {
         try {
-            return this.findJugadoresByEquipo(idEquipo);
+            return this.jugadorRepository.findJugadoresByEquipo(idEquipo);
 
         } catch (Exception ex) {
             System.out.println("Ocurrió un error obteniendo los jugadores del equipo con id " + idEquipo + ": " + ex.getMessage());
@@ -97,7 +97,7 @@ public class JugadorLogic {
 
     public List<Jugador> findJugadoresByGoles(Integer cantidadGoles) {
         try {
-            return this.findJugadoresByGoles(cantidadGoles);
+            return this.jugadorRepository.findJugadoresByGoles(cantidadGoles);
 
         } catch (Exception ex) {
             System.out.println("Ocurrió un error obteniendo los jugadores con mas de  " + cantidadGoles + " goles : " + ex.getMessage());

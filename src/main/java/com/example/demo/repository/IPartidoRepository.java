@@ -11,9 +11,9 @@ import java.util.List;
 public interface IPartidoRepository extends JpaRepository<Partido, Long> {
 
     @Query(value = """
-            select ev.nombre, el.nombre, p.goles_local, p.goles_visitante
+            select el.nombre, ev.nombre, p.goles_local, p.goles_visitante
             from partido p
-            inner join equipo ev on p.equipo_visitante = ev.id
+            inner join equipo ev on p.equipo_visita = ev.id
             inner join equipo el on p.equipo_local = el.id
             """, nativeQuery = true)
     List<Object[]> getResultadosPartidos();
@@ -21,7 +21,7 @@ public interface IPartidoRepository extends JpaRepository<Partido, Long> {
     @Query(value = """
             select sum(goles_local) from partido where equipo_local = ?1
             union
-            select sum(goles_visitante) from partido where equipo_visitante = ?1
+            select sum(goles_visitante) from partido where equipo_visita = ?1
             """, nativeQuery = true)
     List<Integer> getTotalGolesByEquipo(Long idEquipo);
 }

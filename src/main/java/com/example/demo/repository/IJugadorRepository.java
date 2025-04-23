@@ -18,6 +18,6 @@ public interface IJugadorRepository extends JpaRepository<Jugador, Long> {
         join estadisticas e on j.id = e.id_jugador
         group by j.id
         having sum(e.goles) > ?1
-        """, nativeQuery = true)
+    """, nativeQuery = true)
     List<Jugador> findJugadoresByGoles(Integer cantidadGoles);
 }

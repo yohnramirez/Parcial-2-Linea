@@ -72,7 +72,7 @@ public class JugadorController {
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
-    @GetMapping()
+    @GetMapping("by-equipo")
     public ResponseEntity<List<Jugador>> getJugadoresByEquipo(@RequestParam Long idEquipo) {
 
         if (idEquipo < 1) return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
@@ -84,7 +84,7 @@ public class JugadorController {
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
-    @GetMapping()
+    @GetMapping("by-goles")
     public ResponseEntity<List<Jugador>> getJugadoresByGoles(@RequestParam Integer cantidadGoles) {
 
         if (cantidadGoles < 1) return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);

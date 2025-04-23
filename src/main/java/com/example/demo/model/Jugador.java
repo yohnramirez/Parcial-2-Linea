@@ -1,6 +1,7 @@
 package com.example.demo.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
@@ -33,11 +34,12 @@ public class Jugador {
     @Column
     private String nacionalidad;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_equipo")
+    @JsonBackReference("equipo-jugadores")
     private Equipo equipo;
 
     @OneToMany(mappedBy = "jugador")
-    @JsonBackReference
+    @JsonManagedReference("jugador-estadisticas")
     private List<EstadisticasJugador> estadisticas;
 }
