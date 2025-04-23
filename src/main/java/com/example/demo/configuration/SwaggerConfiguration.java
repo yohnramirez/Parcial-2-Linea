@@ -13,7 +13,7 @@ public class SwaggerConfiguration {
     public OpenAPI swaggerConfig() {
         return new OpenAPI()
                 .info(new Info()
-                        .title("API Ventas")
+                        .title("Parcial II")
                         .version("1.0")
                         .description("Documentación Parcial II para Linea de Profundización III")
                         .contact(new Contact()
